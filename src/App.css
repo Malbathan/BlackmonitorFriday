@@ -53,6 +53,7 @@ html {
 
 .icon {
   position: absolute;
+  margin-left: 80px;
 }
 
 .card-deck {
