@@ -8,10 +8,11 @@ import IconHover from '../icon/hover-heart-icon.png'
 import FavHover from '../icon/fav-hover-heart-icon.png'
 
 export default function Wishlist({id}){
-  
-  // const [hover, setHover] = useState(false);
-  const [add, setAdd] = useState();
 
+  const [add, setAdd] = useState();
+  const [fav, setFav] = useState(FavIcon);
+  const [icon, setIcon] = useState(Icon);
+  
   const onClick = (event) => {
     if (!getData(id)) {
       storeData(`${id}`, `FAVORITO`)
@@ -20,6 +21,21 @@ export default function Wishlist({id}){
       removeData(id);
       setAdd('')
     }
+  };
+
+  // Funções de setState para Over e Out
+  const overFav = () => {
+    setFav(FavHover)
+  }
+  const outFavOver = () => {
+    setFav(FavIcon)
+  }
+
+  const overIcon = () => {
+    setIcon(IconHover)
+  }
+  const outIconOver = () => {
+    setIcon(Icon)
   }
 
   useEffect(() => {
@@ -32,22 +48,18 @@ export default function Wishlist({id}){
     <img
       className="icon"
       onClick={onClick}
-      onMouseEnter={(e) =>
-        e.currentTarget.src ='../icon/fav-hover-heart-icon.png'
-      }
-      onMouseOut={(e) => e.currentTarget.src={FavIcon}}
-      src={FavIcon}
+      onMouseOver={overFav}
+      onMouseOut={outFavOver}
+      src={fav}
       alt={'coração vermelho - favorito acionado'}
     />
   ) : (
     <img
       className="icon"
       onClick={onClick}
-      onMouseEnter={(e) =>
-        e.currentTarget.src ='../icon/hover-heart-icon.png'
-      }
-      onMouseOut={(e) => e.currentTarget.src={Icon}}
-      src={Icon}
+      onMouseOver={overIcon}
+      onMouseOut={outIconOver}
+      src={icon}
       alt={'coração preto - favorito não acionado'}
     />
   );

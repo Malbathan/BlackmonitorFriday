@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import { getData, removeData, storeData } from './localstorage.js';
 
-
-import style from './style.js'
-
 export default function Button({param}){
   
   // const [hover, setHover] = useState(false);
   const [add, setAdd] = useState('ADICIONAR');
+  const [bg, setBg] = useState('#40B25C')
 
   const onClick = (event) => {
     if (!getData(param)) {
@@ -26,6 +24,7 @@ export default function Button({param}){
   useEffect(() => {
     if(getData(param)){
       setAdd(`✓  ADICIONADO`)
+      setBg('#A3F9B9')
     }
   }, [])
 
@@ -33,9 +32,7 @@ export default function Button({param}){
     <button
       className="btn"
       onClick={onClick}
-      style={{
-        ...style.normal,
-      }}
+      style={ {background: bg}}
       >
 
         { (getData(param)) ? getData(param) : add }

@@ -28,18 +28,18 @@ const Posts = ({ posts, loading }) => {
               {post.title}
             </p>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">
+              <li className="list-group-item old-price">
                 { 
                   (post.original_price) ? 
                   `R$ ${post.original_price.toFixed(2)}` : 
                   `R$ ${post.price.toFixed(2)}` 
                 }
               </li>
-              <li className="list-group-item">
+              <li className="list-group-item new-price">
                 {`R$ ${post.price.toFixed(2)}`} 
               </li>
-              <li className="list-group-item">
-                em até 10 vezes de R$ {post.price / 10 } sem juros 
+              <li className="list-group-item installment">
+                em até <span>10 vezes de R$ {post.price / 10 }</span> sem juros 
               </li>
             </ul>
             <Button param={post.id}/>

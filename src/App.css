@@ -61,6 +61,11 @@ html {
   justify-content: space-around;
 }
 
+.card-body {
+  width: 85%;
+  align-self: center;
+}
+
 .card {
   margin: 5vw;
   border-radius: 24px;
@@ -72,9 +77,46 @@ html {
   -moz-box-shadow: 2px 3px 32px 1px rgba(0, 0, 0, 0.295);
 }
 
+.card-text {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
 .btn {
   width: 240px;
   height: 48px;
+  font-size: 16px!important;
+  font-weight:bold!important;
 }
 
+.btn:hover {
+  background: #1C6C3E!important;
+}
 
+.old-price {
+  font-size: 14px!important;
+  color: #B5B5B6!important;
+  text-decoration: line-through!important;
+  margin-right: auto;
+}
+
+.new-price {
+  font-size: 24px!important;
+  color: #DA4B4F!important;
+  font-weight: bold;
+  margin-right: auto;
+  line-height: 24px;
+}
+
+.installment {
+  line-height: 16px;
+  font-size: 12px;
+  margin-right: auto;
+  color: #B5B5B6!important;
+  font-weight:bolder;
+}
+
+.installment span {
+  color: #0c0c0c!important;
+}
